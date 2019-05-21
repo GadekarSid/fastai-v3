@@ -1,6 +1,5 @@
 numpy
 torchvision
-pytorch
 fastai
 starlette
 uvicorn==0.3.32
