@@ -51,10 +51,15 @@ def index(request):
 
 @app.route('/analyze', methods=['POST'])
 async def analyze(request):
+    print('inside analyze');
     data = await request.form()
+    print('inside data');
     img_bytes = await (data['file'].read())
+    print('inside bytes read');
     img = open_image(BytesIO(img_bytes))
+    print('inside open image');
     prediction = learn.predict(img)[0]
+    print('inside prediction');
     return JSONResponse({'result': str(prediction)})
 
 if __name__ == '__main__':
